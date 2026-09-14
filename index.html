@@ -1,0 +1,2038 @@
+
+<!DOCTYPE html>
+<html lang="ne">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>नबिन चन्द | व्यक्तिगत डिजिटल पोर्टल</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Glowing Cards */
+        .glowing-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow:
+                0 0 15px rgba(11, 59, 96, 0.12),
+                0 0 5px rgba(201, 29, 36, 0.08);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glowing-card:hover {
+            box-shadow:
+                0 0 25px rgba(11, 59, 96, 0.25),
+                0 0 10px rgba(201, 29, 36, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .glowing-badge {
+            box-shadow: 0 0 10px rgba(201, 29, 36, 0.4);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #0B3B60;
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 6px 0;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main Header */
+        .main-header {
+            background:
+                linear-gradient(
+                    rgba(11, 59, 96, 0.75),
+                    rgba(5, 30, 56, 0.85)
+                ),
+                url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+
+            border-bottom: 3px solid #C91D24;
+            padding: 35px 0;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .office-title {
+            color: #ffdd57;
+            font-weight: 700;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background: #0B3B60 !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-custom .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            padding: 10px 15px !important;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffeb3b !important;
+            border-radius: 4px;
+        }
+
+        /* Content Window */
+        .content-window {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .content-window.active-window {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Slideshow */
+        .home-slide-container {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(11, 59, 96, 0.2);
+            margin-top: 12px;
+            margin-bottom: 12px;
+            background: #000;
+        }
+
+        .home-slide-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .home-slide-item.active-slide {
+            opacity: 1;
+        }
+
+        .home-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-caption-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 59, 96, 0.88);
+            color: #ffdd57;
+            padding: 8px 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* News Ticker */
+        .news-ticker {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .ticker-label {
+            background: #C91D24;
+            color: #fff;
+            padding: 10px 18px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        /* Profile Photo */
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footer-custom {
+            background: #051E38;
+            color: #cbd5e1;
+            padding: 40px 0 20px;
+            font-size: 0.88rem;
+            border-top: 3px solid #C91D24;
+        }
+
+        .footer-custom h5 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #C91D24;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-custom a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-custom a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= TOP BAR ================= -->
+    <div class="top-bar">
+        <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+
+            <div>
+                <span class="badge bg-danger me-2 glowing-badge">
+                    Personal Digital Portal
+                </span>
+
+                <span class="text-warning">
+                    "जन्मी जन्मभूमिश्च स्वर्गादपि गरीयसी"
+                </span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <span id="nepali-date-display">
+                    <i class="fa fa-calendar-alt text-warning me-1"></i>
+                    वि.सं. समय लोड हुँदैछ...
+                </span>
+
+                <span id="nepal-time-display">
+                    <i class="fa fa-clock text-info me-1"></i>
+                    नेपाल समय: समय लोड हुँदैछ...
+                </span>
+
+                <a href="#admin" class="text-warning fw-bold">
+                    <i class="fa fa-lock me-1"></i>
+                    Admin
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ================= MAIN HEADER ================= -->
+    <header class="main-header text-center text-md-start">
+
+        <div class="container-fluid px-4">
+
+            <div class="row align-items-center">
+
+                <!-- Profile -->
+                <div class="col-md-2 mb-3 mb-md-0 text-center">
+
+                    <img src="./assets/images/p.jpeg"
+                        alt="Nabin"
+                        class="rounded-circle shadow-lg border border-warning"
+                        style="width: 90px; height: 90px; object-fit: cover;">
+
+                </div>
+
+
+                <!-- Name -->
+                <div class="col-md-8 mb-3 mb-md-0 text-center text-md-start">
+
+                    <h2 class="office-title fw-bold fs-2 mb-1">
+                        नबिन चन्द (NABIN CHAND)
+                    </h2>
+
+                    <h4 class="text-light fs-5 fw-bold mb-1">
+                        Computer Educator & Administrator
+                    </h4>
+
+                    <p class="text-warning mb-0 fw-semibold">
+                        पञ्चेश्वर-४, बैतडी, सुदूरपश्चिम प्रदेश, नेपाल
+                    </p>
+
+                </div>
+
+
+                <!-- Official Badge -->
+                <div class="col-md-2 text-center text-md-end">
+
+                    <span class="badge bg-danger p-2 fs-6 shadow glowing-badge">
+                        आधिकारिक वेबसाइट
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+
+        <div class="container-fluid px-4">
+
+            <button class="navbar-toggler text-white"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <i class="fa fa-bars"></i>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav me-auto" id="dynamic-nav-links">
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            onclick="switchWindow('home', this)">
+                            <i class="fa fa-home me-1"></i>
+                            गृहपृष्ठ
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('experience', this)">
+                            <i class="fa fa-briefcase me-1"></i>
+                            कार्य अनुभव
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('qualification', this)">
+                            <i class="fa fa-graduation-cap me-1"></i>
+                            योग्यता
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('skills', this)">
+                            <i class="fa fa-tools me-1"></i>
+                            सीप तथा दक्षता
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('gallery', this)">
+                            <i class="fa fa-images me-1"></i>
+                            ग्यालरी / समाचार
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('salary', this)">
+                            <i class="fa fa-calculator me-1"></i>
+                            तलब क्याल्कुलेटर
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            onclick="switchWindow('contact', this)">
+                            <i class="fa fa-address-book me-1"></i>
+                            सम्पर्क
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= NEWS TICKER ================= -->
+    <div class="container-fluid px-4 mt-3">
+
+        <div class="news-ticker shadow-sm">
+
+            <div class="ticker-label">
+                <i class="fa fa-bolt me-1"></i>
+                हाइलाइट्स
+            </div>
+
+            <marquee behavior="scroll"
+                direction="left"
+                scrollamount="5"
+                class="py-2 px-3 fw-bold text-danger"
+                onmouseover="this.stop();"
+                onmouseout="this.start();">
+
+                ⚡ नबिन चन्दको व्यक्तिगत डिजिटल पोर्टलमा स्वागत छ!
+                |
+                🚀 कम्प्युटर इन्जिनियरिङ पृष्ठभूमि, कम्प्युटर शिक्षण तथा प्रशासनिक व्यवस्थापन।
+                |
+                📥 C.V. डाउनलोड सुविधा उपलब्ध छ।
+
+            </marquee>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="container-fluid px-4 my-4" style="min-height: 55vh;">
+
+
+        <!-- ================================================= -->
+        <!-- 1. HOME WINDOW -->
+        <!-- ================================================= -->
+
+        <div id="window-home" class="content-window active-window">
+
+            <div class="row g-4 mb-4" data-aos="fade-up">
+
+
+                <!-- LEFT HOME CONTENT -->
+                <div class="col-lg-8">
+
+                    <div class="p-4 glowing-card border-start border-danger border-4 h-100 d-flex flex-column justify-content-between">
+
+                        <div>
+
+                            <span class="badge bg-danger mb-2 px-3 py-1 glowing-badge">
+                                डिजिटल प्रोफाइल तथा मुख्य हाइलाइट्स
+                            </span>
+
+                            <h2 class="fw-bold text-primary mb-1">
+                                नमस्ते, म नबिन चन्द
+                            </h2>
+
+                            <h5 class="text-danger fw-bold mb-2">
+                                &gt; Computer Educator & Administrator
+                            </h5>
+
+                        </div>
+
+
+                        <!-- ================= SLIDESHOW ================= -->
+                        <div class="home-slide-container">
+
+
+                            <!-- Slide 1 -->
+                            <div class="home-slide-item active-slide">
+
+                                <img src="./assets/images/image_7bc6ea.jpg"
+                                    alt="Devtal Baba Mandir">
+
+                                <div class="slide-caption-title">
+                                    📍 प्रशिद्ध धार्मिक स्थल देवताल बाबा मन्दिर, पञ्चेश्वर-४, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 2 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c3733.jpg"
+                                    alt="Udaydev Night View">
+
+                                <div class="slide-caption-title">
+                                    🌙 रात्रिकालीन दृश्य उदयदेव महाराज मन्दिर, पञ्चेश्वर-४, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 3 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c3ecd.jpg"
+                                    alt="Udaydev Construction">
+
+                                <div class="slide-caption-title">
+                                    🏗️ उदयदेव महाराज मन्दिर निर्माणाधिन अवस्थामा
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 4 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c49f4.jpg"
+                                    alt="Shramdan">
+
+                                <div class="slide-caption-title">
+                                    🤝 उदयदेव मन्दिर निर्माण -- श्रमदान कार्यक्रममा सहभागी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 5 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c3f88.jpg"
+                                    alt="Kailpal Mandir Mela">
+
+                                <div class="slide-caption-title">
+                                    🎉 धुरा मेला विशेष प्रशिद्ध । कैलपाल मन्दिर, पञ्चेश्वर, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 6 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c42ea.jpg"
+                                    alt="Melouli Bhagwati">
+
+                                <div class="slide-caption-title">
+                                    🛕 मेलौली भगवती माताको दरवार, मेलौली, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 7 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7c4615.jpg"
+                                    alt="Tripura Sundari">
+
+                                <div class="slide-caption-title">
+                                    ✨ त्रिपुरा सुन्दरी भगवती मन्दिर, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 8 -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/tak.jpg"
+                                    alt="Tak Tilakpur School">
+
+                                <div class="slide-caption-title">
+                                    🏫 श्री टाक तिलकपुर माध्यमिक विद्यालय भवन, पञ्चेश्वर-४ आम्चौरा, बैतडी
+                                </div>
+
+                            </div>
+
+
+                            <!-- Slide 9 - FIXED -->
+                            <div class="home-slide-item">
+
+                                <img src="./assets/images/image_7d8942.jpg"
+                                    alt="Pancheshwar Rural Municipality">
+
+                                <div class="slide-caption-title">
+                                    🏫 पञ्चेश्वर गाउँपालिका गाउँकार्यपालिकाको प्रशासकीय भवन, आम्चौरा, बैतडी
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- END SLIDESHOW -->
+
+
+                        <!-- Buttons -->
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+
+                            <button class="btn btn-danger btn-sm fw-bold shadow-sm"
+                                onclick="switchWindow('experience', document.querySelectorAll('.nav-link')[1])">
+
+                                <i class="fa fa-briefcase me-1"></i>
+                                कार्य अनुभव
+
+                            </button>
+
+
+                            <button class="btn btn-success btn-sm fw-bold shadow-sm"
+                                onclick="switchWindow('contact', document.querySelectorAll('.nav-link')[6])">
+
+                                <i class="fa fa-file-pdf me-1"></i>
+                                CV डाउनलोड
+
+                            </button>
+
+
+                            <button class="btn btn-primary btn-sm fw-bold shadow-sm"
+                                onclick="switchWindow('gallery', document.querySelectorAll('.nav-link')[4])">
+
+                                <i class="fa fa-images me-1"></i>
+                                ग्यालरी हेर्नुहोस्
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT PROFILE CARD -->
+                <div class="col-lg-4">
+
+                    <div class="glowing-card p-4 text-center">
+
+                        <span class="badge bg-primary mb-3 px-3 py-1">
+                            प्रमाणित प्रोफाइल
+                        </span>
+
+
+                        <div class="mb-3">
+
+                            <img src="./assets/images/p.jpeg"
+                                class="profile-photo rounded shadow border border-danger"
+                                alt="Nabin Chand">
+
+                        </div>
+
+
+                        <h4 class="fw-bold mb-1">
+                            NABIN CHAND
+                        </h4>
+
+                        <p class="text-danger fw-bold small text-uppercase mb-3">
+                            Computer Educator & Administration
+                        </p>
+
+                        <hr class="text-muted">
+
+
+                        <div class="text-start small text-secondary">
+
+                            <p class="mb-2">
+                                <i class="fa fa-graduation-cap text-warning me-2"></i>
+                                कम्प्युटर इन्जिनियरिङ (८९.४७%)
+                            </p>
+
+                            <p class="mb-2">
+                                <i class="fa fa-book text-info me-2"></i>
+                                B.Ed. (TU - Running)
+                            </p>
+
+                            <p class="mb-2">
+                                <i class="fa fa-map-marker-alt text-danger me-2"></i>
+                                पञ्चेश्वर-४, बैतडी सुदूरपश्चिम प्रदेश, नेपाल
+                            </p>
+
+                            <p class="mb-0">
+                                <i class="fa fa-phone text-success me-2"></i>
+                                +९७७-९८६८६७२८१८
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 2. EXPERIENCE WINDOW -->
+        <!-- ================================================= -->
+
+        <div id="window-experience" class="content-window">
+
+            <div class="glowing-card p-4 mb-4">
+
+                <h3 class="text-primary fw-bold mb-1">
+                    <i class="fa fa-briefcase me-2"></i>
+                    कार्य अनुभव (Work Experience)
+                </h3>
+
+                <p class="text-muted small mb-4">
+                    ४+ वर्षको व्यावहारिक संस्थागत तथा कम्प्युटर शिक्षण अनुभव
+                </p>
+
+
+                <!-- Job 1 -->
+                <div class="p-4 border rounded mb-4 bg-white shadow-sm">
+
+                    <span class="badge bg-danger mb-2 glowing-badge">
+                        २०८० भाद्र - २०८३ जेष्ठ
+                    </span>
+
+                    <h4 class="fw-bold text-dark mb-1">
+                        Computer Teacher & Administrative / IT Support
+                    </h4>
+
+                    <h6 class="text-primary mb-3">
+                        एम.जे.सी. एकेडेमी – गोठालापानी, बैतडी
+                    </h6>
+
+                    <ul class="text-secondary small ps-3">
+
+                        <li class="mb-2">
+                            संस्थागत व्यवस्थापन सफ्टवेयर, डिजिटल डाटाबेस तथा आधिकारिक दस्तावेजीकरणको नियमित सञ्चालन।
+                        </li>
+
+                        <li class="mb-2">
+                            फ्रन्ट-डेस्क सञ्चार, टेलिफोन सोधपुछ, तथा आधिकारिक पत्राचार व्यवस्थापन।
+                        </li>
+
+                        <li class="mb-2">
+                            कक्षा १० सम्मका विद्यार्थीहरूलाई कम्प्युटर विज्ञानको सैद्धान्तिक तथा प्रयोगात्मक अध्यापन।
+                        </li>
+
+                        <li class="mb-0">
+                            कम्प्युटर हार्डवेयर, स्थानीय नेटवर्क (LAN) तथा वेबसाइट अध्यावधिकका समस्याहरूको समाधान।
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Job 2 -->
+                <div class="p-4 border rounded bg-white shadow-sm">
+
+                    <span class="badge bg-secondary mb-2">
+                        २०७९ वैशाख - २०८१ वैशाख
+                    </span>
+
+                    <h4 class="fw-bold text-dark mb-1">
+                        Computer Trainer & Office Assistant
+                    </h4>
+
+                    <h6 class="text-primary mb-3">
+                        शिव शक्ति देवताल कम्प्युटर एण्ड फोटो स्टुडियो – शाहीलेक, बैतडी
+                    </h6>
+
+                    <ul class="text-secondary small ps-3">
+
+                        <li class="mb-2">
+                            विद्यार्थी तथा सेवाग्राहीहरूलाई एमएस-अफिस (Word, Excel, PPT) तथा नेपाली टाइपिंग तालिम प्रदान।
+                        </li>
+
+                        <li class="mb-2">
+                            कम्प्युटर सेटअप, अपरेटिङ सिस्टम इन्स्टलेसन र डिजिटल फोटो तथा ग्राफिक सम्पादन।
+                        </li>
+
+                        <li class="mb-0">
+                            काउन्टर बिलिङ, ग्राहक सहायता र प्रशासनिक कागजातहरूको शुद्ध व्यवस्थापन।
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 3. QUALIFICATION WINDOW -->
+        <!-- ================================================= -->
+
+        <div id="window-qualification" class="content-window">
+
+            <div class="glowing-card p-4">
+
+                <h3 class="text-primary fw-bold mb-1">
+                    <i class="fa fa-graduation-cap me-2"></i>
+                    शैक्षिक योग्यता (Academic Qualifications)
+                </h3>
+
+                <p class="text-muted small mb-4">
+                    औपचारिक शिक्षा तथा विशिष्ट प्राप्ताङ्क विवरण
+                </p>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <span class="badge bg-warning text-dark mb-2">
+                                त्रिभुवन विश्वविद्यालय (Running)
+                            </span>
+
+                            <h4 class="fw-bold text-dark">
+                                Bachelor in Education (B.Ed.)
+                            </h4>
+
+                            <p class="text-secondary small mb-0">
+                                बैतडी शिक्षा क्याम्पस
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="p-4 border rounded glowing-card h-100 border-danger shadow-sm">
+
+                            <span class="badge bg-danger mb-2 glowing-badge">
+                                २०८० वि.सं.
+                            </span>
+
+                            <span class="badge bg-success float-end">
+                                Distinction ⭐
+                            </span>
+
+                            <h4 class="fw-bold text-dark">
+                                Computer Engineering (IT)
+                            </h4>
+
+                            <p class="text-secondary small mb-1">
+                                श्री बीरेन्द्र माध्यमिक विद्यालय, बैतडी
+                            </p>
+
+                            <p class="text-danger fw-bold mb-0">
+                                प्राप्ताङ्क: ८९.४७%
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <h4 class="fw-bold text-dark">
+                                Higher Secondary (+2)
+                            </h4>
+
+                            <p class="text-secondary small mb-1">
+                                श्री जबलपुर माध्यमिक विद्यालय, सैलोडा, बैतडी
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <h4 class="fw-bold text-dark">
+                                SEE/SLC (Grade 10)
+                            </h4>
+
+                            <p class="text-secondary small mb-1">
+                                श्री टाक तिलकपुर माध्यमिक विद्यालय, आम्चौरा, बैतडी
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 4. SKILLS WINDOW -->
+        <!-- ================================================= -->
+
+        <div id="window-skills" class="content-window">
+
+            <div class="glowing-card p-4">
+
+                <h3 class="text-primary fw-bold mb-1">
+                    <i class="fa fa-tools me-2"></i>
+                    सीप तथा प्राविधिक दक्षता (Key Competencies)
+                </h3>
+
+                <p class="text-muted small mb-4">
+                    सफ्टवेयर, हार्डवेयर र फ्रन्ट-डेस्क व्यवस्थापन क्षमता
+                </p>
+
+
+                <div class="row g-4">
+
+                    <!-- Software -->
+                    <div class="col-md-4">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <h5 class="fw-bold text-danger mb-3">
+                                <i class="fa fa-laptop-code me-2"></i>
+                                सफ्टवेयर तथा आईटी
+                            </h5>
+
+                            <ul class="text-secondary small ps-3 mb-0">
+
+                                <li class="mb-2">
+                                    MS Office (Advanced Excel, Word, PowerPoint)
+                                </li>
+
+                                <li class="mb-2">
+                                    डेटाबेस तथा अफिसियल सफ्टवेयर सञ्चालन
+                                </li>
+
+                                <li class="mb-2">
+                                    नेपाली (Preeti/Unicode) र अङ्ग्रेजी फास्ट टाइपिंग
+                                </li>
+
+                                <li class="mb-0">
+                                    डाटा इन्ट्री, डाटा ब्यवस्थापन तथा स्प्रेडसिट रिपोर्टिङ
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Hardware -->
+                    <div class="col-md-4">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <h5 class="fw-bold text-primary mb-3">
+                                <i class="fa fa-server me-2"></i>
+                                हार्डवेयर तथा नेटवर्क
+                            </h5>
+
+                            <ul class="text-secondary small ps-3 mb-0">
+
+                                <li class="mb-2">
+                                    कम्प्युटर हार्डवेयर मर्मत तथा ट्रबलसुटिङ
+                                </li>
+
+                                <li class="mb-2">
+                                    Local Area Network (LAN) & WiFi सेटअप
+                                </li>
+
+                                <li class="mb-2">
+                                    Windows OS इन्स्टलेसन र सेकुरिटी ब्याकअप
+                                </li>
+
+                                <li class="mb-0">
+                                    प्रिन्टर तथा डिजिटल उपकरण व्यवस्थापन
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Front Desk -->
+                    <div class="col-md-4">
+
+                        <div class="p-4 border rounded glowing-card h-100">
+
+                            <h5 class="fw-bold text-success mb-3">
+                                <i class="fa fa-headset me-2"></i>
+                                फ्रन्ट-डेस्क तथा सञ्चार
+                            </h5>
+
+                            <ul class="text-secondary small ps-3 mb-0">
+
+                                <li class="mb-2">
+                                    विवरण व्यवस्थापन र दर्ता
+                                </li>
+
+                                <li class="mb-2">
+                                    सूचना ब्यवस्थापन तथा काउन्टर कोर्डिनेसन
+                                </li>
+
+                                <li class="mb-2">
+                                    बहुभाषी क्षमता (नेपाली, बैतडेली, अङ्ग्रेजी, हिन्दी)
+                                </li>
+
+                                <li class="mb-0">
+                                    फोटोसप र सोशल मिडिया व्यवस्थापन
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 5. GALLERY WINDOW -->
+        <!-- ================================================= -->
+
+        <div id="window-gallery" class="content-window">
+
+            <div class="glowing-card p-4">
+
+                <h3 class="text-primary fw-bold mb-1">
+                    <i class="fa fa-images me-2"></i>
+                    तस्बिर ग्यालरी तथा समाचार
+                </h3>
+
+                <p class="text-muted small mb-4">
+                    पञ्चेश्वर, बैतडीका प्रसिद्ध धार्मिक/ऐतिहासिक स्थलहरू तथा शैक्षिक गतिविधिको विशेष तस्बिर सङ्ग्रह।
+                </p>
+
+
+                <div class="row g-4">
+
+
+                    <!-- Gallery 1 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7bc6ea.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Devtal Baba Mandir">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2 glowing-badge">
+                                    धार्मिक स्थल
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    देवताल बाबा मन्दिर
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    प्रशिद्ध धार्मिक स्थल देवताल बाबा मन्दिर पञ्चेश्वर ४ बैतडी सुदूरपश्चिम प्रदेश।
+                                </p>
+
+                            </div>
+
+                            <div class="card-footer bg-transparent border-0 pb-3">
+
+                                <a href="https://www.facebook.com/sharer/sharer.php?u="
+                                    target="_blank"
+                                    class="btn btn-outline-primary btn-sm w-100 fw-bold">
+
+                                    <i class="fab fa-facebook-f me-1"></i>
+                                    फेसबुकमा सेयर गर्नुहोस्
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 2 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c3733.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Udaydev Maharaj Night View">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-warning text-dark mb-2 glowing-badge">
+                                    रात्रिकालीन दृश्य
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    उदयदेव महाराज मन्दिर
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    रात्रिकालीन दृश्य उदयदेव महाराज मन्दिर पञ्चेश्वर ४ बैतडी सुदूरपश्चिम प्रदेश।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 3 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c3ecd.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Udaydev Under Construction">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-secondary mb-2">
+                                    निर्माणाधिन
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    उदयदेव मन्दिर निर्माण
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    उदयदेव महाराज मन्दिर निर्माणाधिन अवस्थामा।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 4 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c49f4.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Udaydev Shramdan">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-success mb-2">
+                                    श्रमदान
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    श्रमदान अभियान
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    उदयदेव मन्दिर निर्माण -- श्रमदान कार्यक्रममा सहभागी।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 5 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c3f88.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Kailpal Mandir Mela">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2 glowing-badge">
+                                    धुरा मेला
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    कैलपाल मन्दिर
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    धुरा मेला विशेष प्रशिद्ध । कैलपाल मन्दिर पञ्चेश्वर, बैतडी।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 6 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c42ea.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Melouli Bhagwati">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-warning text-dark mb-2">
+                                    ऐतिहासिक दरवार
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    मेलौली भगवती मन्दिर
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    मेलौली भगवती माताको दरवार, मेलौली बैतडी।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 7 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c4615.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Tripura Sundari">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">
+                                    सांस्कृतिक सम्पदा
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    त्रिपुरा सुन्दरी मन्दिर
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    त्रिपुरा सुन्दरी भगवती मन्दिर, बैतडी।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 8 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7c46b3.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Tak Tilakpur School">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-primary mb-2">
+                                    विद्यालय भवन
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    टाक तिलकपुर मा.वि.
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    श्री टाक तिलकपुर माध्यमिक विद्यालय भवन पञ्चेश्वर ४ आम्चौरा, बैतडी।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 9 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/b.png"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Farewell Program">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2 glowing-badge">
+                                    विदाई कार्यक्रम
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    कक्षा १० विदाई - २०८२
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    एम.जे.सी. एकेडेमीमा शिक्षण गर्दै गर्दा कक्षा १० का विद्यार्थीहरुको विदाई कार्यक्रम विशेष कैद तस्वीर- २०८२।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 10 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d2b6f.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Prize Distribution">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-success mb-2">
+                                    पुरस्कार वितरण
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    पुरस्कार वितरण समारोह
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    एम.जे.सी. एकेडेमीमा शिक्षण गर्दै गर्दा पुरस्कार वितरण गर्दै।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 11 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d2c2b.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Robotics Training">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-primary mb-2">
+                                    रोबोटिक्स प्रोजेक्ट
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    प्रयोगात्मक शिक्षण
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    एम.जे.सी. एकेडेमीमा शिक्षण गर्दै गर्दा विद्यार्थीहरुको सीपमूलक ज्ञानका लागि रोबोटिक्स प्रोजेक्ट कृयाकलाप प्रशिक्षण गर्दै।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 12 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d2fcd.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Prize Distribution 2">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-warning text-dark mb-2">
+                                    सम्मान तथा पुरस्कार
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    विद्यार्थी प्रोत्साहन
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    एम.जे.सी. एकेडेमीमा शिक्षण गर्दै गर्दा पुरस्कार वितरण गर्दै।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 13 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d3310.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Holi Special">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2 glowing-badge">
+                                    होली विशेष
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    क्याम्पस होली उत्सव
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    बैतडी शिक्षा क्याम्पस द्वारा आयोजित होली बिशेष कार्यक्रममा समावेश हुँदै।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 14 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d366f.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="School Memories">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-secondary mb-2">
+                                    कक्षा १० स्मृति
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    विद्यालयका साथीहरूसँग
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    श्री टाक तिलकपुर माध्यमिक विद्यालयमा कक्षा १० मा अध्ययनरत रहेको दौरान कैद तस्वीर।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 15 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d3767.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Constitution Day">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-warning text-dark mb-2">
+                                    द्विप प्रज्वलन
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    संविधान दिवस
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    संविधान दिवस द्विप प्रज्वलन कार्यक्रम-२०८१।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Gallery 16 -->
+                    <div class="col-md-4">
+
+                        <div class="card glowing-card h-100 border">
+
+                            <img src="./assets/images/image_7d8942.jpg"
+                                class="card-img-top"
+                                style="height: 200px; object-fit: cover;"
+                                alt="Rural Municipality Building">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-primary mb-2">
+                                    प्रशासकीय भवन
+                                </span>
+
+                                <h5 class="card-title fw-bold text-dark fs-6">
+                                    पञ्चेश्वर गाउँपालिका
+                                </h5>
+
+                                <p class="card-text text-secondary small">
+                                    पञ्चेश्वर गाउँपालिका प्रशासकीय भवन आम्चौरा बैतडी-२०८१।
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 6. SALARY CALCULATOR -->
+        <!-- ================================================= -->
+
+        <div id="window-salary" class="content-window">
+
+            <div class="glowing-card p-5 text-center mx-auto">
+
+                <h3 class="text-primary fw-bold mb-3">
+                    <i class="fa fa-calculator me-2"></i>
+                    तलब क्याल्कुलेटर (Salary Calculator)
+                </h3>
+
+                <p class="text-secondary mb-4">
+                    मासिक वा वार्षिक तलब तथा कर हिसाब गर्न यहाँ प्रयोग गर्नुहोस्।
+                </p>
+
+                <div class="mb-3 text-start">
+
+                    <label class="form-label fw-bold">
+                        मासिक तलब (रु.)
+                    </label>
+
+                    <input type="number"
+                        id="basicSalary"
+                        class="form-control"
+                        placeholder="उदा: ५००००">
+
+                </div>
+
+                <button class="btn btn-primary fw-bold w-100 shadow-sm"
+                    onclick="alert('तलव हिसाब सफल भयो!')">
+
+                    हिसाब गर्नुहोस्
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 7. CONTACT & CV -->
+        <!-- ================================================= -->
+
+        <div id="window-contact" class="content-window">
+
+            <div class="row g-4">
+
+
+                <!-- Contact -->
+                <div class="col-lg-6">
+
+                    <div class="glowing-card p-4 h-100">
+
+                        <h3 class="text-primary fw-bold mb-3">
+                            <i class="fa fa-address-book me-2"></i>
+                            सम्पर्क विवरण
+                        </h3>
+
+                        <p class="text-secondary mb-4">
+                            व्यक्तिगत तथा व्यावसायिक सहकार्यका लागि तलका माध्यमबाट जोडिर्न सक्नुहुन्छ।
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>ठेगाना:</strong>
+                            पञ्चेश्वर-४, बैतडी (धनगढी, कैलाली)
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>मोबाइल:</strong>
+                            +९७७-९८६८६७२८१८
+                        </p>
+
+                        <p class="mb-4">
+                            <strong>इमेल:</strong>
+                            naveenchandrazaa731@gmail.com
+                        </p>
+
+                        <a href="https://wa.me/9779868672818"
+                            target="_blank"
+                            class="btn btn-success fw-bold shadow-sm">
+
+                            <i class="fab fa-whatsapp me-1"></i>
+                            WhatsApp मा कुरा गर्नुहोस्
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CV -->
+                <div class="col-lg-6">
+
+                    <div class="glowing-card p-4 h-100 text-center d-flex flex-column justify-content-center">
+
+                        <h3 class="text-primary fw-bold mb-3">
+
+                            <i class="fa fa-file-pdf text-danger me-2"></i>
+                            सीभी (CV) डाउनलोड / अपलोड
+
+                        </h3>
+
+                        <p class="text-secondary mb-4">
+                            मेरो व्यावसायिक वायोग्राफी PDF ढाँचामा डाउनलोड वा अपलोड गर्नुहोस्।
+                        </p>
+
+                        <a href="./assets/docs/cv.pdf"
+                            download="Nabin_Chand_CV.pdf"
+                            class="btn btn-danger py-3 fw-bold rounded-pill shadow glowing-badge">
+
+                            <i class="fa fa-download me-2"></i>
+                            सीभी डाउनलोड गर्नुहोस् (PDF)
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer-custom mt-5">
+
+        <div class="container-fluid px-4">
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-4">
+
+                    <h5>सम्पर्क ठेगाना</h5>
+
+                    <p class="mb-1 text-secondary">
+                        नबिन चन्द
+                    </p>
+
+                    <p class="mb-1 text-secondary">
+                        पञ्चेश्वर-४, बैतडी (धनगढी, कैलाली)
+                    </p>
+
+                    <p class="mb-0 text-secondary">
+                        +९७७-९८६८६७२८१८
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-4">
+
+                    <h5>महत्त्वपूर्ण लिङ्कहरू</h5>
+
+                    <ul class="list-unstyled mb-0">
+
+                        <li class="mb-2">
+
+                            <a href="https://psc.sudurpashchim.gov.np"
+                                target="_blank">
+
+                                प्रदेश लोक सेवा आयोग, सुदूरपश्चिम
+
+                            </a>
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            <a href="https://github.com"
+                                target="_blank">
+
+                                मेरो GitHub प्रोफाइल
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="col-lg-4">
+
+                    <h5>सिस्टम स्टेटस</h5>
+
+                    <p class="small text-muted mb-0">
+                        Personal Digital Portal • Cloudflare Pages Ready
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <hr class="border-secondary my-4">
+
+
+            <div class="text-center small text-muted">
+
+                <p class="mb-0">
+                    &copy; 2026 नबिन चन्द (NABIN CHAND) | All Rights Reserved
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@remotemerge/nepali-date-converter@1/dist/ndc-browser.js"></script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+
+
+    <script>
+
+        /* AOS */
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+
+
+        /* ==========================================
+           NEPAL STANDARD DATE & TIME
+           Server-synchronised time, Asia/Kathmandu
+        ========================================== */
+
+        (function () {
+            const dateEl = document.getElementById('nepali-date-display');
+            const timeEl = document.getElementById('nepal-time-display');
+
+            let syncedMs = null;
+            let syncedAtMs = null;
+
+            const nepaliDigits = '०१२३४५६७८९';
+            const bsMonths = [
+                'बैशाख', 'जेठ', 'असार', 'श्रावण', 'भाद्र', 'आश्विन',
+                'कार्तिक', 'मंसिर', 'पौष', 'माघ', 'फाल्गुण', 'चैत्र'
+            ];
+            const bsWeekdays = [
+                'आइतबार', 'सोमबार', 'मंगलबार', 'बुधबार',
+                'बिहिबार', 'शुक्रबार', 'शनिबार'
+            ];
+
+            function toNepaliDigits(value) {
+                return String(value).replace(/[0-9]/g, d => nepaliDigits[d]);
+            }
+
+            function pad2(n) {
+                return String(n).padStart(2, '0');
+            }
+
+            function getKathmanduParts(ms) {
+                const parts = new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'Asia/Kathmandu',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    weekday: 'long',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                }).formatToParts(new Date(ms));
+
+                const obj = {};
+                parts.forEach(p => obj[p.type] = p.value);
+                return obj;
+            }
+
+            function render(ms) {
+                const p = getKathmanduParts(ms);
+                const hour24 = new Date(ms).toLocaleString('en-US', {
+                    timeZone: 'Asia/Kathmandu',
+                    hour: 'numeric',
+                    hour12: false
+                });
+                const hour = Number(hour24);
+                const nepaliTime = `${toNepaliDigits(p.hour)}:${toNepaliDigits(p.minute)}:${toNepaliDigits(p.second)} ${p.dayPeriod === 'AM' ? 'पूर्वाह्न' : 'अपराह्न'}`;
+
+                /* Gregorian date is used as the exact time anchor.
+                   The existing BS date is replaced by a live BS conversion
+                   through the Nepali date converter CDN. */
+                let bsText = `${toNepaliDigits(p.year)}-${toNepaliDigits(p.month)}-${toNepaliDigits(p.day)}`;
+
+                if (typeof DateConverter !== 'undefined') {
+                    try {
+                        const bs = new DateConverter(
+                            `${p.year}-${p.month}-${p.day}`
+                        ).toBs();
+
+                        bsText =
+                            `${toNepaliDigits(bs.year)} ${bsMonths[bs.month - 1] || ''} ${toNepaliDigits(bs.date)}, ${bsWeekdays[new Date(ms).getDay()]}`;
+                    } catch (e) {}
+                }
+
+                dateEl.innerHTML =
+                    '<i class="fa fa-calendar-alt text-warning me-1"></i>वि.सं. ' + bsText;
+
+                timeEl.innerHTML =
+                    '<i class="fa fa-clock text-info me-1"></i>नेपाल समय: ' + nepaliTime;
+            }
+
+            function nowMs() {
+                if (syncedMs !== null && syncedAtMs !== null) {
+                    return syncedMs + (Date.now() - syncedAtMs);
+                }
+                return Date.now();
+            }
+
+            async function syncTime() {
+                const endpoints = [
+                    'https://timeapi.io/api/time/current/zone?timeZone=Asia%2FKathmandu',
+                    'https://worldtimeapi.org/api/timezone/Asia%2FKathmandu'
+                ];
+
+                for (const url of endpoints) {
+                    try {
+                        const response = await fetch(url, {
+                            cache: 'no-store',
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (!response.ok) continue;
+
+                        const data = await response.json();
+                        const value = data.dateTime || data.datetime;
+
+                        if (!value) continue;
+
+                        const serverMs = new Date(value).getTime();
+                        if (Number.isFinite(serverMs)) {
+                            syncedMs = serverMs;
+                            syncedAtMs = Date.now();
+                            render(nowMs());
+                            return;
+                        }
+                    } catch (e) {}
+                }
+
+                /* Offline fallback: force Nepal timezone even if the device
+                   is configured for another timezone. */
+                render(Date.now());
+            }
+
+            syncTime();
+            setInterval(() => render(nowMs()), 1000);
+
+            /* Re-sync periodically so accumulated local clock drift is corrected. */
+            setInterval(syncTime, 5 * 60 * 1000);
+        })();
+
+
+        /* ==========================================
+           TAB WINDOW SWITCHING
+        ========================================== */
+
+        function switchWindow(windowName, element) {
+
+            document
+                .querySelectorAll('.content-window')
+                .forEach(function (win) {
+
+                    win.classList.remove('active-window');
+
+                });
+
+
+            const targetWin =
+                document.getElementById('window-' + windowName);
+
+
+            if (targetWin) {
+
+                targetWin.classList.add('active-window');
+
+            }
+
+
+            document
+                .querySelectorAll('.navbar-custom .nav-link')
+                .forEach(function (link) {
+
+                    link.classList.remove('active');
+
+                });
+
+
+            if (element) {
+
+                element.classList.add('active');
+
+            }
+
+
+            window.scrollTo({
+                top: 250,
+                behavior: 'smooth'
+            });
+
+        }
+
+
+        /* ==========================================
+           HOME SLIDESHOW
+        ========================================== */
+
+        let currentSlide = 0;
+
+        const slides =
+            document.querySelectorAll('.home-slide-item');
+
+
+        function nextHomeSlide() {
+
+            if (slides.length === 0) {
+                return;
+            }
+
+
+            slides[currentSlide]
+                .classList.remove('active-slide');
+
+
+            currentSlide =
+                (currentSlide + 1) % slides.length;
+
+
+            slides[currentSlide]
+                .classList.add('active-slide');
+
+        }
+
+
+        /* Change photo every 4 seconds */
+        setInterval(nextHomeSlide, 4000);
+
+    </script>
+
+</body>
+
+</html>
+```
